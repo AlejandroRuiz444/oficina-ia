@@ -1,0 +1,61 @@
+{
+  "name": "claude-code-office",
+  "version": "0.1.0",
+  "description": "Live dashboard, 3D isometric office and cost tracker for your local Claude Code sessions and subagents. Runs on localhost; optional control panel to launch agents.",
+  "keywords": [
+    "claude-code",
+    "claude",
+    "anthropic",
+    "ai-agents",
+    "subagents",
+    "dashboard",
+    "visualizer",
+    "observability",
+    "monitoring",
+    "token-usage",
+    "cost-tracker",
+    "isometric",
+    "threejs",
+    "developer-tools",
+    "localhost"
+  ],
+  "homepage": "https://github.com/azorkai/claude-code-office#readme",
+  "bugs": {
+    "url": "https://github.com/azorkai/claude-code-office/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azorkai/claude-code-office.git"
+  },
+  "license": "MIT",
+  "author": "azorkai",
+  "main": "server.js",
+  "bin": {
+    "claude-code-office": "bin/claude-code-office.js"
+  },
+  "files": [
+    "bin/",
+    "public/",
+    "server.js",
+    "control.js",
+    "lib/",
+    "cost-worker.js",
+    "demo.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "node server.js --open",
+    "demo": "node server.js --demo --open",
+    "vendor": "npx esbuild node_modules/three/build/three.module.js --bundle --minify --format=esm --outfile=public/vendor/three/three.module.min.js && node -e \"const fs=require('fs');fs.mkdirSync('public/vendor/three/addons/geometries',{recursive:true});fs.copyFileSync('node_modules/three/examples/jsm/geometries/RoundedBoxGeometry.js','public/vendor/three/addons/geometries/RoundedBoxGeometry.js');fs.copyFileSync('node_modules/three/LICENSE','public/vendor/three/LICENSE')\""
+  },
+  "engines": {
+    "node": ">=18.14.0"
+  },
+  "devDependencies": {
+    "three": "^0.186.1"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.318"
+  }
+}

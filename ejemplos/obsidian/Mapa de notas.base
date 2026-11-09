@@ -1,0 +1,47 @@
+filters:
+  and:
+    - file.inFolder("Claude/MI_PROYECTO")
+properties:
+  file.name:
+    displayName: Nota
+  tags:
+    displayName: Etiquetas
+  actualizado:
+    displayName: Actualizado
+views:
+  - type: table
+    name: Todas
+    order:
+      - file.name
+      - tags
+      - actualizado
+    sort:
+      - property: actualizado
+        direction: DESC
+  - type: table
+    name: Proyectos
+    filters:
+      and:
+        - file.inFolder("Claude/MI_PROYECTO/Proyectos")
+    order:
+      - file.name
+      - tags
+      - actualizado
+  - type: table
+    name: Herramientas
+    filters:
+      and:
+        - file.inFolder("Claude/MI_PROYECTO/Herramientas")
+    order:
+      - file.name
+      - tags
+      - actualizado
+  - type: table
+    name: Lecciones
+    filters:
+      and:
+        - file.name.contains("lecciones")
+    order:
+      - file.name
+      - tags
+      - actualizado

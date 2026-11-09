@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="app.name">Claude Code Office</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='5' width='26' height='24' rx='5' fill='%2312161d' stroke='%239085e9' stroke-width='2'/%3E%3Crect x='8' y='11' width='6' height='5' rx='1' fill='%23fab219'/%3E%3Crect x='18' y='11' width='6' height='5' rx='1' fill='%239085e9'/%3E%3Crect x='8' y='19' width='6' height='5' rx='1' fill='%233987e5'/%3E%3Crect x='18' y='19' width='6' height='5' rx='1' fill='%23199e70'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="app.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="24" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="8" y="11" width="6" height="5" rx="1" fill="#fab219"/><rect x="18" y="11" width="6" height="5" rx="1" fill="#9085e9"/><rect x="8" y="19" width="6" height="5" rx="1" fill="#3987e5"/><rect x="18" y="19" width="6" height="5" rx="1" fill="#199e70"/></svg>
+    <span data-i18n="app.name">Claude Code Office</span>
+  </div>
+  <nav class="seg" role="tablist" aria-label="View" data-i18n-aria="nav.label">
+    <button role="tab" data-view="pano" title="Dashboard (1)" data-i18n="tab.pano" data-i18n-title="tab.pano.tip">Dashboard</button>
+    <button role="tab" data-view="ofis" title="Office (2)" data-i18n="tab.ofis" data-i18n-title="tab.ofis.tip">Office</button>
+    <button role="tab" data-view="akis" title="Timeline (3)" data-i18n="tab.akis" data-i18n-title="tab.akis.tip">Timeline</button>
+    <button role="tab" data-view="maliyet" title="Cost (4)" data-i18n="tab.maliyet" data-i18n-title="tab.maliyet.tip">Cost</button>
+  </nav>
+  <div class="kpis" id="kpis"></div>
+  <div class="accts" id="accts"></div>
+  <button id="lang" class="icon-btn lang-btn" type="button"></button>
+  <button id="bell" class="icon-btn" type="button"></button>
+  <span id="conn" class="conn" title="Live connection" data-i18n-title="conn.live"></span>
+</header>
+
+<div id="attention" class="attention" hidden></div>
+
+<main>
+  <section id="view-pano" class="view" hidden></section>
+  <section id="view-ofis" class="view view-ofis" hidden></section>
+  <section id="view-akis" class="view view-akis" hidden>
+    <div class="akis-bar">
+      <div class="seg small" id="akis-range">
+        <button data-r="15" data-i18n="akis.r15">15m</button><button data-r="60" data-i18n="akis.r60">1h</button><button data-r="180" data-i18n="akis.r180">3h</button><button data-r="360" data-i18n="akis.r360">6h</button>
+      </div>
+      <label class="toggle" data-i18n-tail="akis.subs"><input type="checkbox" id="akis-subs" checked><span></span>Subagents</label>
+      <label class="toggle" data-i18n-tail="akis.dormant"><input type="checkbox" id="akis-dormant"><span></span>Asleep</label>
+      <div class="legend" id="akis-legend"></div>
+    </div>
+    <div class="akis-axis"><canvas id="akis-axis"></canvas></div>
+    <div class="akis-scroll" id="akis-scroll"><canvas id="akis"></canvas></div>
+  </section>
+  <section id="view-maliyet" class="view view-maliyet" hidden></section>
+</main>
+
+<aside id="drawer" class="drawer" aria-hidden="true"></aside>
+<section id="chat" class="chat" hidden aria-label="Chat con el agente del proyecto"></section>
+<div id="scrim" class="scrim"></div>
+<div id="tip" class="tip" role="tooltip"></div>
+
+<script type="module" src="js/i18n.js"></script>
+<script src="js/md.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

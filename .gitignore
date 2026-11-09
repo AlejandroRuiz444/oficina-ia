@@ -1,0 +1,19 @@
+node_modules/
+data/
+*.log
+
+# personal, machine-specific settings (see README > Configuration)
+config.local.json
+
+# optional private decorations for the 3D office; never published
+public/local/
+
+# personal launch helpers with absolute paths
+start-ajan-ofisi.vbs
+
+.DS_Store
+Thumbs.db
+
+# datos del panel y copias
+.backup-*/
+agents-office/
